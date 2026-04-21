@@ -1,0 +1,71 @@
+{
+    "version": "1.0",
+    "sections": {
+        "entities": {
+            "key": "entities",
+            "version": "1.0",
+            "data": {
+                "snapshot_story": {
+                    "label": "Snapshot Story",
+                    "class": "Waaseyaa\\Bimaaji\\Tests\\Integration\\SnapshotStoryEntity",
+                    "keys": {
+                        "id": "id",
+                        "uuid": "uuid",
+                        "label": "title"
+                    },
+                    "fields": {
+                        "title": {
+                            "type": "string",
+                            "label": "Title",
+                            "weight": 0
+                        },
+                        "summary": {
+                            "type": "text",
+                            "label": "Summary",
+                            "weight": 1
+                        }
+                    },
+                    "group": null,
+                    "description": null,
+                    "revisionable": false,
+                    "translatable": false
+                },
+                "snapshot_note": {
+                    "label": "Snapshot Note",
+                    "class": "Waaseyaa\\Bimaaji\\Tests\\Integration\\SnapshotNoteEntity",
+                    "keys": {
+                        "id": "id",
+                        "uuid": "uuid",
+                        "label": "title"
+                    },
+                    "fields": {
+                        "title": {
+                            "type": "string",
+                            "label": "Title",
+                            "weight": 0
+                        },
+                        "body": {
+                            "type": "text",
+                            "label": "Body",
+                            "weight": 1
+                        },
+                        "published": {
+                            "type": "boolean",
+                            "label": "Published",
+                            "weight": 2
+                        }
+                    },
+                    "group": null,
+                    "description": null,
+                    "revisionable": false,
+                    "translatable": false
+                }
+            }
+        },
+        "admin": {
+            "key": "admin",
+            "version": "1.0",
+            "data": []
+        }
+    }
+}

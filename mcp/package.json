@@ -1,0 +1,10 @@
+{
+  "name": "@waaseyaa/bimaaji-mcp",
+  "private": true,
+  "type": "module",
+  "description": "MCP server wrapper for waaseyaa/bimaaji application graph tools",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.0.0"
+  }
+}
