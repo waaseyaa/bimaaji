@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  phpunit:
+    name: PHPUnit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.4"
+          tools: composer
+
+      - name: Install dependencies (with dev)
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Run PHPUnit
+        run: ./vendor/bin/phpunit tests
+
+  public-surface-check:
+    name: Public surface (no-dev)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.4"
+          tools: composer
+
+      - name: Install production dependencies only
+        run: composer install --no-dev --no-interaction --prefer-dist
+
+      - name: Verify src/ imports map to require (not require-dev-only)
+        run: php scripts/check-public-surface-deps.php
+
+      - name: Smoke ApplicationGraphGenerator under no-dev autoload
+        run: php scripts/public-surface-smoke.php
